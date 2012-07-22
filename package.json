@@ -1,34 +1,41 @@
 {
-    "name": "qif2json",
-    "description": "Parse .qif files into a sensible JSON format",
-    "version": "0.1.0",
-    "homepage": "https://github.com/spmason/qif2json",
-    "author": {
-        "name": "Steve Mason",
-        "email": "steve@spmason.com"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/spmason/qif2json.git"
-    },
-    "bugs": {
-        "url": "https://github.com/spmason/qif2json/issues"
-    },
-    "licenses": [{
-        "type": "MIT",
-        "url": "https://github.com/spmason/qif2json/blob/master/LICENSE-MIT"
-    }],
-    "main": "lib/qif2json",
-    "bin": { "qif2json": "./cli.js" },
-    "engines": {
-        "node": ">= 0.6.0"
-    },
-    "scripts": {
-        "test": "grunt test"
-    },
-    "devDependencies": {
-        "grunt": "~0.3.11",
-        "expectations": "~0.1.6"
-    },
-    "keywords": []
+  "name": "qif2json",
+  "description": "Parse .qif files into a sensible JSON format",
+  "version": "0.1.0",
+  "homepage": "https://github.com/spmason/qif2json",
+  "author": {
+    "name": "Steve Mason",
+    "email": "steve@spmason.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/spmason/qif2json.git"
+  },
+  "bugs": {
+    "url": "https://github.com/spmason/qif2json/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/spmason/qif2json/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "lib/qif2json",
+  "bin": {
+    "qif2json": "./cli.js"
+  },
+  "engines": {
+    "node": ">= 0.6.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt": "~0.3.11",
+    "expectations": "~0.1.6"
+  },
+  "keywords": [],
+  "dependencies": {
+    "pretty-data": "~0.40.0"
+  }
 }
