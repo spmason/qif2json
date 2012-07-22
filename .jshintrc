@@ -1,0 +1,17 @@
+{
+    "evil": true,
+    "globalstrict": true,
+    "node": true,
+    "predef":
+    [
+        "before",
+        "after",
+        "beforeEach",
+        "afterEach",
+        "describe",
+        "it",
+        "expect",
+        "xit",
+        "xdescribe"
+    ]
+}

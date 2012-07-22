@@ -19,6 +19,7 @@
         "url": "https://github.com/spmason/qif2json/blob/master/LICENSE-MIT"
     }],
     "main": "lib/qif2json",
+    "bin": { "qif2json": "./cli.js" },
     "engines": {
         "node": ">= 0.6.0"
     },
