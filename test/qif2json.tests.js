@@ -31,4 +31,29 @@ PSPRINGFIELD WATER UTILITY\r\n\
         expect(data.transactions[2].amount).toEqual(-421.35);
         expect(data.transactions[2].payee).toEqual('SPRINGFIELD WATER UTILITY');
     });
+
+    it('errors on invalid type field', function(){
+        var err;
+        try{
+            data = qif2json.parse('!FOO');
+        }catch(e){
+            err = e;
+        }
+
+        expect(err).toBeDefined();
+    });
+
+    it('errors on unknown detail code', function(){
+        var err;
+        try{
+            data = qif2json.parse('!Type:Bank\r\n\
+123\r\n\
+^\r\n\
+');
+        }catch(e){
+            err = e;
+        }
+
+        expect(err).toBeDefined();
+    });
 });

@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var qif2json = require('./lib/qif2json.js'),
     pd = require('pretty-data').pd,
     file = process.argv[2];
@@ -10,6 +12,6 @@ qif2json.parseFile(file, function(err, data){
     if(err){
         return console.error(err.message);
     }
-    
+
     console.log(pd.json(data));
 });
