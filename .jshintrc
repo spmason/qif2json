@@ -2,6 +2,8 @@
     "evil": true,
     "globalstrict": true,
     "node": true,
+    "boss": true,
+    "multistr": true,
     "predef":
     [
         "before",

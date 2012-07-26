@@ -36,6 +36,8 @@
   },
   "keywords": [],
   "dependencies": {
-    "pretty-data": "~0.40.0"
+    "pretty-data": "~0.40.0",
+    "jschardet": "~1.0.2",
+    "iconv": "~1.2.2"
   }
 }
