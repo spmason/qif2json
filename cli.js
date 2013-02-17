@@ -3,7 +3,7 @@
 var qif2json = require('./lib/qif2json.js'),
     args = process.argv.slice(2),
     transactionsOnly,
-    file = [];
+    file;
 
 args.forEach(function(arg){
     if(arg.indexOf('-') !== 0){
