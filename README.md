@@ -10,7 +10,7 @@ var qif2json = require('qif2json');
 qif2json.parse(qifData);
 
 // Or to read in a file directly
-qif2json.parseFile(filePath, function(errm qifData){
+qif2json.parseFile(filePath, function(err, qifData){
     // done!
 });
 ```
@@ -22,6 +22,8 @@ Take care to maintain the existing coding style. Add unit tests for any new or c
 
 ## Release History
 * 0.0.1 Initial release, small subset of qif fields understood, please make a pull request if you need more
+* 0.0.2 Charset detection
+* 0.0.4 Removed pretty-data dependency
 
 ## License
 Copyright (c) 2012 Steve Mason  
