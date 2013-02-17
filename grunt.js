@@ -1,6 +1,7 @@
 var spawn = require('child_process').spawn;
 
 function run(exe, args, callback){
+    'use strict';
     var process = spawn(exe, args, {stdio: 'inherit'});
 
     process.on('exit', function(code){
@@ -9,6 +10,7 @@ function run(exe, args, callback){
 }
 
 module.exports = function(grunt) {
+    'use strict';
     // Project configuration.
     grunt.initConfig({
         pkg: '<json:package.json>'
@@ -38,5 +40,4 @@ module.exports = function(grunt) {
 
     // Default task.
     grunt.registerTask('default', 'lint test');
-
 };
