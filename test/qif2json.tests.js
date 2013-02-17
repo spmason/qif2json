@@ -1,5 +1,6 @@
 'use strict';
-var qif2json = require('../lib/qif2json.js');
+var qif2json = require('../lib/qif2json.js'),
+    fs = require('fs');
 
 describe('qif2json', function(){
     it('Can parse Bank example', function(){
@@ -85,6 +86,17 @@ PCITY OF SPRINGFIELD\r\n');
         qif2json.parseFile(__dirname + '/files/windows-1252.qif', function(err, data){
             expect(err).not.toBeDefined();
             expect(data.transactions[0].payee).toEqual('SOME £$™€ CHARACTERS');
+
+            done();
+        });
+    });
+
+    it('can parse stream', function(done){
+        var reader = fs.createReadStream(__dirname + '/files/utf8.qif');
+
+        qif2json.parseStream(reader, function(err, qifData){
+            expect(err).not.toBeDefined();
+            expect(qifData.transactions.length).toEqual(1);
 
             done();
         });

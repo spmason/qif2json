@@ -1,12 +1,11 @@
 #!/usr/bin/env node
-
+'use strict';
 var qif2json = require('./lib/qif2json.js'),
     args = process.argv.slice(2),
     transactionsOnly,
     file = [];
 
 args.forEach(function(arg){
-    'use strict';
     if(arg.indexOf('-') !== 0){
         file = arg;
         return;
@@ -18,14 +17,8 @@ args.forEach(function(arg){
             break;
     }
 });
-if(!file){
-    console.error('Usage: qif2json [files]');
-    console.error('    --transactions, -t Generate only transactions');
-    return;
-}
 
-qif2json.parseFile(file, function(err, data){
-    'use strict';
+function output(err, data){
     if(err){
         return console.error(err.message);
     }
@@ -35,4 +28,11 @@ qif2json.parseFile(file, function(err, data){
     }
 
     console.log(JSON.stringify(data, null, 4));
-});
+}
+
+if(!file){
+    qif2json.parseStream(process.stdin, output);
+    return process.stdin.resume();
+}
+
+qif2json.parseFile(file, output);
