@@ -24,6 +24,7 @@ Take care to maintain the existing coding style. Add unit tests for any new or c
 * 0.0.1 Initial release, small subset of qif fields understood, please make a pull request if you need more
 * 0.0.2 Charset detection
 * 0.0.4 Removed pretty-data dependency
+* 0.0.5 Added --transaction flag to cli
 
 ## License
 Copyright (c) 2012 Steve Mason  
