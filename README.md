@@ -25,6 +25,7 @@ Take care to maintain the existing coding style. Add unit tests for any new or c
 * 0.0.2 Charset detection
 * 0.0.4 Removed pretty-data dependency
 * 0.0.5 Added --transaction flag to cli
+* 0.0.6 Added stdin support
 
 ## License
 Copyright (c) 2012 Steve Mason  
