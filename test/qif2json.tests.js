@@ -47,6 +47,20 @@ PCITY OF SPRINGFIELD\r\n');
         expect(data.transactions[0].amount).toEqual(-379);
         expect(data.transactions[0].payee).toEqual('CITY OF SPRINGFIELD');
     });
+    
+    it('Can parse dash-separated dates', function(){
+        var data = qif2json.parse('!Type:Bank\r\n\
+D03-03-10\r\n\
+T-379.00\r\n\
+PCITY OF SPRINGFIELD\r\n');
+
+        expect(data.type).toEqual('Bank');
+        expect(data.transactions.length).toEqual(1);
+        
+        expect(data.transactions[0].date).toEqual('2010-03-03');
+        expect(data.transactions[0].amount).toEqual(-379);
+        expect(data.transactions[0].payee).toEqual('CITY OF SPRINGFIELD');
+    });
 
     it('errors on invalid type field', function(){
         var err, data;
