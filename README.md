@@ -2,6 +2,8 @@
 
 Parse .qif files into a sensible JSON format
 
+[![Build Status](https://travis-ci.org/spmason/qif2json.svg)](https://travis-ci.org/spmason/qif2json)
+
 ## Getting Started
 Install the module with: `npm install qif2json`
 
