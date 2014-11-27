@@ -5,12 +5,12 @@ var qif2json = require('./lib/qif2json.js'),
     transactionsOnly,
     file;
 
-args.forEach(function(arg){
-    if(arg.indexOf('-') !== 0){
+args.forEach(function(arg) {
+    if (arg.indexOf('-') !== 0) {
         file = arg;
         return;
     }
-    switch(arg){
+    switch (arg) {
         case '--transactions':
         case '-t':
             transactionsOnly = true;
@@ -18,21 +18,22 @@ args.forEach(function(arg){
     }
 });
 
-function output(err, data){
-    if(err){
-        return console.error(err.message);
+function output(err, data) {
+    if (err) {
+        console.error(err.message);
+        return;
     }
 
-    if(transactionsOnly){
+    if (transactionsOnly) {
         data = data.transactions;
     }
 
     console.log(JSON.stringify(data, null, 4));
 }
 
-if(!file){
+if (!file) {
     qif2json.parseStream(process.stdin, output);
-    return process.stdin.resume();
+    process.stdin.resume();
+} else {
+    qif2json.parseFile(file, output);
 }
-
-qif2json.parseFile(file, output);

@@ -28,12 +28,12 @@
     "node": ">= 0.6.0"
   },
   "scripts": {
-    "test": "grunt test"
+    "test": "jshint .; jscs .; mocha"
   },
   "devDependencies": {
     "expectations": "^0.2.5",
-    "grunt": "^0.4.5",
-    "grunt-cli": "^0.1.13",
+    "jscs": "^1.8.0",
+    "jshint": "^2.5.10",
     "mocha": "^2.0.1"
   },
   "keywords": [],
