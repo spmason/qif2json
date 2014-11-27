@@ -30,6 +30,7 @@ Take care to maintain the existing coding style. Add unit tests for any new or c
 * 0.0.6 Added stdin support
 * 0.0.7 Better date parsing
 * 0.0.8 Remove HTML encoded attributes during parse
+* 0.0.9 Removed grunt, added jshint, jscs and editorconfig files to keep existing coding style. Updated dependencies & added to Travis
 
 ## License
 Licensed under the MIT license.
