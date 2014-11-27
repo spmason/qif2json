@@ -31,12 +31,13 @@
     "test": "grunt test"
   },
   "devDependencies": {
-    "grunt": "~0.3.11",
-    "expectations": "~0.1.6"
+    "expectations": "^0.2.5",
+    "grunt": "^0.4.5",
+    "mocha": "^2.0.1"
   },
   "keywords": [],
   "dependencies": {
-    "jschardet": "~1.0.2",
-    "iconv": "~1.2.2"
+    "iconv": "^1.2.4",
+    "jschardet": "^1.0.2"
   }
 }
