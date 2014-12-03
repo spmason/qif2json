@@ -36,9 +36,9 @@ describe('qif2json', function() {
 
     it('Can parse Bank example with single entry', function() {
         var data = qif2json.parse(['!Type:Bank',
-'D03/03/10',
-'T-379.00',
-'PCITY OF SPRINGFIELD\r\n'].join('\r\n'));
+        'D03/03/10',
+        'T-379.00',
+        'PCITY OF SPRINGFIELD\r\n'].join('\r\n'));
 
         expect(data.type).toEqual('Bank');
         expect(data.transactions.length).toEqual(1);
@@ -115,4 +115,45 @@ describe('qif2json', function() {
             done();
         });
     });
+
+    it ('can parse \'Microsoft Money\' bank account', function() {
+        var data = qif2json.parse(['!Type:AccounType',
+            'D10/26\'14',
+            'T1,337.00',
+            'CX',
+            'POpening Balance',
+            'L[AccountName]'].join('\r\n'));
+
+        expect(data.type).toEqual('AccounType');
+        expect(data.transactions[0].category).toEqual('[AccountName]');
+        expect(data.transactions[0].date).toEqual('2014-26-10');
+        expect(data.transactions[0].amount).toEqual(1337.00);
+        expect(data.transactions[0].accountType).toEqual("X");
+    });
+
+    it ('can parse partial transaction with related detail codes', function() {
+        var data = qif2json.parse(['!Type:Cardname',
+            'D10/28\'14',
+            'T-67.00',
+            'PWallmart',
+            'LFood:Greens',
+            'SFood:Greens',
+            '$-45.00',
+            'SFood:Meat',
+            '$-16.00',
+            'SFood:Dispensary',
+            '$-6.00\r\n'].join('\r\n'));
+
+        expect(data.type).toEqual('Cardname');
+        expect(data.transactions.length).toEqual(1);
+
+        expect(data.transactions[0].date).toEqual('2014-28-10');
+        expect(data.transactions[0].amount).toEqual(-67);
+        expect(data.transactions[0].payee).toEqual('Wallmart');
+
+        expect(data.transactions[0].division[0].subcategory).toEqual('Greens');
+        expect(data.transactions[0].division[1].category).toEqual('Food');
+        expect(data.transactions[0].division[2].amount).toEqual(-6);
+    });
+
 });
