@@ -1,7 +1,7 @@
 {
   "name": "qif2json",
   "description": "Parse .qif files into a sensible JSON format",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "homepage": "https://github.com/spmason/qif2json",
   "author": {
     "name": "Steve Mason",
