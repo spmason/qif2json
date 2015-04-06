@@ -31,6 +31,8 @@ Take care to maintain the existing coding style. Add unit tests for any new or c
 * 0.0.7 Better date parsing
 * 0.0.8 Remove HTML encoded attributes during parse
 * 0.0.9 Removed grunt, added jshint, jscs and editorconfig files to keep existing coding style. Updated dependencies & added to Travis
+* 0.1.0 Support for Money 97 and "partial" transactions
+* 0.1.1 Installs on node 0.12 and iojs 1.6
 
 ## License
 Licensed under the MIT license.
