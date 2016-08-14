@@ -14,12 +14,7 @@
   "bugs": {
     "url": "https://github.com/spmason/qif2json/issues"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/spmason/qif2json/blob/master/LICENSE-MIT"
-    }
-  ],
+  "license": "MIT",
   "main": "lib/qif2json",
   "bin": {
     "qif2json": "./cli.js"
