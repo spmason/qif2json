@@ -28,7 +28,7 @@
     "node": ">= 4.0.0"
   },
   "scripts": {
-    "test": "jshint .; jscs .; mocha"
+    "test": "jshint . && jscs . && mocha"
   },
   "devDependencies": {
     "expectations": "^0.4.2",
