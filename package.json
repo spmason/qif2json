@@ -31,10 +31,10 @@
     "test": "jshint . && jscs . && mocha"
   },
   "devDependencies": {
-    "expectations": "^0.4.2",
-    "jscs": "^1.12.0",
+    "expectations": "^0.6.0",
+    "jscs": "^3.0.7",
     "jshint": "^2.6.0",
-    "mocha": "^2.2.1"
+    "mocha": "^3.0.2"
   },
   "keywords": [],
   "dependencies": {
