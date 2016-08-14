@@ -128,7 +128,7 @@ describe('qif2json', function() {
         expect(data.transactions[0].category).toEqual('[AccountName]');
         expect(data.transactions[0].date).toEqual('2014-26-10');
         expect(data.transactions[0].amount).toEqual(1337.00);
-        expect(data.transactions[0].accountType).toEqual('X');
+        expect(data.transactions[0].clearedStatus).toEqual('X');
     });
 
     it ('can parse partial transaction with related detail codes', function() {
