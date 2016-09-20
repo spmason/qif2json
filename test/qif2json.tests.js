@@ -192,4 +192,31 @@ describe('qif2json', function() {
         expect(data.transactions[0].payee).toEqual('Opening Balance');
     });
 
+    it ('can parse descriptions in partial transaction', function() {
+        var data = qif2json.parse(['!Type:Cardname',
+            'D10/28\'14',
+            'T-67.00',
+            'PWallmart',
+            'LFood:Greens',
+            'SFood:Greens',
+            '$-45.00',
+            'SFood:Meat',
+            'EPork belly',
+            '$-16.00',
+            'SFood:Dispensary',
+            '$-6.00\r\n'].join('\r\n'));
+
+        expect(data.type).toEqual('Cardname');
+        expect(data.transactions.length).toEqual(1);
+
+        expect(data.transactions[0].date).toEqual('2014-28-10');
+        expect(data.transactions[0].amount).toEqual(-67);
+        expect(data.transactions[0].payee).toEqual('Wallmart');
+
+        expect(data.transactions[0].division[0].subcategory).toEqual('Greens');
+        expect(data.transactions[0].division[1].category).toEqual('Food');
+        expect(data.transactions[0].division[2].amount).toEqual(-6);
+        expect(data.transactions[0].division[1].description).toEqual('Pork belly');
+    });
+
 });
