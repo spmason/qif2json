@@ -39,7 +39,7 @@ function output(err, data) {
     console.log(JSON.stringify(data, null, 4));
 }
 
-var options = {usDates, oldDates};
+var options = {usDates: usDates, oldDates: oldDates};
 
 if (!file) {
     qif2json.parseStream(process.stdin, options, output);
