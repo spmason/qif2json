@@ -20,7 +20,7 @@
     "qif2json": "./cli.js"
   },
   "engines": {
-    "node": ">= 4.0.0"
+    "node": ">= 8.0.0"
   },
   "scripts": {
     "test": "jshint . && jscs . && mocha"
@@ -28,12 +28,12 @@
   "devDependencies": {
     "expectations": "^0.6.0",
     "jscs": "^3.0.7",
-    "jshint": "^2.6.0",
-    "mocha": "^3.0.2"
+    "jshint": "^2.10.1",
+    "mocha": "^3.5.3"
   },
   "keywords": [],
   "dependencies": {
-    "iconv": "^2.1.6",
-    "jschardet": "^1.1.1"
+    "iconv": "^2.3.2",
+    "jschardet": "^1.6.0"
   }
 }
