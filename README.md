@@ -33,6 +33,7 @@ Take care to maintain the existing coding style. Add unit tests for any new or c
 * 0.0.9 Removed grunt, added jshint, jscs and editorconfig files to keep existing coding style. Updated dependencies & added to Travis
 * 0.1.0 Support for Money 97 and "partial" transactions
 * 0.1.1 Installs on node 0.12 and iojs 1.6
+* 0.2.0 Added normalTransactions.qif example file + tests
 
 ## License
 Licensed under the MIT license.
