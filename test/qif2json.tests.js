@@ -77,11 +77,11 @@ describe('qif2json', function() {
         var err, data;
         try {
             data = qif2json.parse(['!Type:Bank',
-'123',
-'^',
-''].join('\r\n'));
+              '123',
+              '^',
+              ''].join('\r\n'));
         } catch (e) {
-            err = e;
+           err = e;
         }
 
         expect(err).toBeDefined();
@@ -191,6 +191,22 @@ describe('qif2json', function() {
         expect(data.transactions[0].amount).toEqual(1);
         expect(data.transactions[0].payee).toEqual('Opening Balance');
     });
+
+    it ('can parse mixed millenium dates', function() {
+        var data = qif2json.parse(['!Type:Bank',
+            'D11/10/99',
+            'T1',
+            'POpening Balance',
+            '^',
+            "D3/ 1' 0",
+            'T-1',
+            'PCITY OF SPRINGFIELD\r\n'].join('\r\n'), {dateFormat: 'us', oldDates: true});
+
+        expect(data.type).toEqual('Bank');
+        expect(data.transactions[0].date).toEqual('1999-11-10');
+        expect(data.transactions[1].date).toEqual('2000-03-01');
+    });
+
 
     it ('can parse descriptions in partial transaction', function() {
         var data = qif2json.parse(['!Type:Cardname',
