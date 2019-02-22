@@ -35,6 +35,6 @@
   "keywords": [],
   "dependencies": {
     "iconv": "^2.3.2",
-    "jschardet": "^1.6.0"
+    "jschardet": "^2.1.0"
   }
 }
