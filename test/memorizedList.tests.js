@@ -1,19 +1,19 @@
-'use strict';
-var qif2json = require('../lib/qif2json.js'),
-    fs = require('fs');
 
-describe('memorizedList', function(done) {
-    var reader = fs.createReadStream(__dirname + '/files/memorizedList.qif');
+const fs = require('fs');
+const qif2json = require('../lib/qif2json.js');
 
-    xit ('can parse memorizedList', function(done) {
-        qif2json.parseStream(reader, {dateFormat: 'us'}, function(err, qifData) {
-            expect(err).toBeUndefined();
+describe('memorizedList', () => {
+  const reader = fs.createReadStream(`${__dirname}/files/memorizedList.qif`);
 
-            expect(qifData.type).toEqual('Invst');
-            expect(qifData.transactions.length).toEqual(2);
-            expect(qifData.transactions[0].date).toEqual('1993-08-25');
+  xit('can parse memorizedList', (done) => {
+    qif2json.parseStream(reader, { dateFormat: 'us' }, (err, qifData) => {
+      expect(err).toBeUndefined();
 
-            done();
-        });
+      expect(qifData.type).toEqual('Invst');
+      expect(qifData.transactions.length).toEqual(2);
+      expect(qifData.transactions[0].date).toEqual('1993-08-25');
+
+      done();
     });
+  });
 });

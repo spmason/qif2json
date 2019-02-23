@@ -20,20 +20,21 @@
     "qif2json": "./cli.js"
   },
   "engines": {
-    "node": ">= 4.0.0"
+    "node": ">= 8.0.0"
   },
   "scripts": {
-    "test": "jshint . && jscs . && mocha"
+    "test": "eslint . && mocha"
   },
   "devDependencies": {
-    "expectations": "^0.6.0",
-    "jscs": "^3.0.7",
-    "jshint": "^2.6.0",
-    "mocha": "^3.0.2"
+    "eslint": "^5.14.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "expectations": "^0.7.1",
+    "mocha": "^6.0.1"
   },
   "keywords": [],
   "dependencies": {
-    "iconv": "^2.1.6",
-    "jschardet": "^1.1.1"
+    "iconv": "^2.3.2",
+    "jschardet": "^2.1.0"
   }
 }

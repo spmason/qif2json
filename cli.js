@@ -1,49 +1,52 @@
 #!/usr/bin/env node
-'use strict';
-var qif2json = require('./lib/qif2json.js'),
-    args = process.argv.slice(2),
-    transactionsOnly,
-    usDates,
-    oldDates,
-    file;
 
-args.forEach(function(arg) {
-    if (arg.indexOf('-') !== 0) {
-        file = arg;
-        return;
-    }
-    switch (arg) {
-        case '--transactions':
-        case '-t':
-            transactionsOnly = true;
-            break;
-        case '-u':
-            usDates = true;
-            break;
-        case '-m':
-            oldDates = true;
-            break;
-    }
+
+const qif2json = require('./lib/qif2json.js');
+
+const args = process.argv.slice(2);
+let transactionsOnly;
+let usDates;
+let oldDates;
+let file;
+
+args.forEach((arg) => {
+  if (arg.indexOf('-') !== 0) {
+    file = arg;
+    return;
+  }
+  switch (arg) {
+    case '--transactions':
+    case '-t':
+      transactionsOnly = true;
+      break;
+    case '-u':
+      usDates = true;
+      break;
+    case '-m':
+      oldDates = true;
+      break;
+  }
 });
 
 function output(err, data) {
-    if (err) {
-        console.error(err.message);
-        return;
-    }
+  let outputObj = data;
+  if (err) {
+    console.error(err.message);
+    return;
+  }
 
-    if (transactionsOnly) {
-        data = data.transactions;
-    }
+  if (transactionsOnly) {
+    outputObj = data.transactions;
+  }
 
-    console.log(JSON.stringify(data, null, 4));
+  console.log(JSON.stringify(outputObj, null, 4));
 }
 
-var options = {usDates: usDates, oldDates: oldDates};
+const options = { usDates, oldDates };
 
 if (!file) {
-    qif2json.parseStream(process.stdin, options, output);
-    process.stdin.resume();
+  qif2json.parseStream(process.stdin, options, output);
+  process.stdin.resume();
 } else {
-    qif2json.parseFile(file, options, output);
+  qif2json.parseFile(file, options, output);
 }
