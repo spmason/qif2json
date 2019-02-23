@@ -208,6 +208,18 @@ describe('qif2json', () => {
     expect(data.transactions[1].date).toEqual('2000-03-01');
   });
 
+  it('ignores repeated T column instead of crashing on U', () => {
+    const data = qif2json.parse(['!Type:Bank',
+      'D11/10/99',
+      'U1',
+      'T1',
+      'POpening Balance'].join('\r\n'), { dateFormat: 'us', oldDates: true });
+
+    expect(data.type).toEqual('Bank');
+    expect(data.transactions[0].amount).toEqual(1);
+  });
+
+
   it('can parse descriptions in partial transaction', () => {
     const data = qif2json.parse(['!Type:Cardname',
       'D10/28\'14',

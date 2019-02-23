@@ -25,6 +25,8 @@ args.forEach((arg) => {
     case '-m':
       oldDates = true;
       break;
+    default:
+      break;
   }
 });
 
