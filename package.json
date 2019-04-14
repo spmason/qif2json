@@ -34,7 +34,7 @@
   },
   "keywords": [],
   "dependencies": {
-    "iconv": "^2.3.2",
+    "iconv-lite": "^0.4.24",
     "jschardet": "^2.1.0"
   }
 }
