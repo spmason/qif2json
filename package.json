@@ -1,7 +1,7 @@
 {
   "name": "qif2json",
   "description": "Parse .qif files into a sensible JSON format",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "homepage": "https://github.com/spmason/qif2json",
   "author": {
     "name": "Steve Mason",
@@ -29,7 +29,7 @@
     "eslint": "^5.14.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.16.0",
-    "expectations": "^0.7.1",
+    "expectations": "^1.0.0",
     "mocha": "^6.0.1"
   },
   "keywords": [],
