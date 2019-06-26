@@ -26,7 +26,7 @@
     "test": "eslint . && mocha"
   },
   "devDependencies": {
-    "eslint": "^5.14.1",
+    "eslint": "^6.0.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.16.0",
     "expectations": "^1.0.0",
