@@ -123,11 +123,11 @@ describe('qif2json', () => {
       'T1,337.00',
       'CX',
       'POpening Balance',
-      'L[AccountName]'].join('\r\n'));
+      'L[AccountName]'].join('\r\n'), { dateFormat: 'us' });
 
     expect(data.type).toEqual('AccounType');
     expect(data.transactions[0].category).toEqual('[AccountName]');
-    expect(data.transactions[0].date).toEqual('2014-26-10');
+    expect(data.transactions[0].date).toEqual('2014-10-26');
     expect(data.transactions[0].amount).toEqual(1337.00);
     expect(data.transactions[0].clearedStatus).toEqual('X');
   });
@@ -143,12 +143,12 @@ describe('qif2json', () => {
       'SFood:Meat',
       '$-16.00',
       'SFood:Dispensary',
-      '$-6.00\r\n'].join('\r\n'));
+      '$-6.00\r\n'].join('\r\n'), { dateFormat: 'us' });
 
     expect(data.type).toEqual('Cardname');
     expect(data.transactions.length).toEqual(1);
 
-    expect(data.transactions[0].date).toEqual('2014-28-10');
+    expect(data.transactions[0].date).toEqual('2014-10-28');
     expect(data.transactions[0].amount).toEqual(-67);
     expect(data.transactions[0].payee).toEqual('Wallmart');
 
@@ -205,12 +205,12 @@ describe('qif2json', () => {
       'EPork belly',
       '$-16.00',
       'SFood:Dispensary',
-      '$-6.00\r\n'].join('\r\n'));
+      '$-6.00\r\n'].join('\r\n'), { dateFormat: 'us' });
 
     expect(data.type).toEqual('Cardname');
     expect(data.transactions.length).toEqual(1);
 
-    expect(data.transactions[0].date).toEqual('2014-28-10');
+    expect(data.transactions[0].date).toEqual('2014-10-28');
     expect(data.transactions[0].amount).toEqual(-67);
     expect(data.transactions[0].payee).toEqual('Wallmart');
 
