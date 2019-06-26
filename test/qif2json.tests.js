@@ -243,4 +243,15 @@ describe('qif2json', () => {
     expect(data.transactions[0].amount).toEqual(-379);
     expect(data.transactions[0].payee).toEqual('CITY OF SPRINGFIELD');
   });
+
+  it('ignores repeated T column instead of crashing on U', () => {
+    const data = qif2json.parse(['!Type:Bank',
+      'D11/10/99',
+      'U1',
+      'T1',
+      'POpening Balance'].join('\r\n'), { dateFormat: 'us' });
+
+    expect(data.type).toEqual('Bank');
+    expect(data.transactions[0].amount).toEqual(1);
+  });
 });
