@@ -244,6 +244,21 @@ describe('qif2json', () => {
     expect(data.transactions[0].payee).toEqual('CITY OF SPRINGFIELD');
   });
 
+  it('can parse mixed millenium dates', () => {
+    const data = qif2json.parse(['!Type:Bank',
+      'D11/10/99',
+      'T1',
+      'POpening Balance',
+      '^',
+      "D3/ 1' 0",
+      'T-1',
+      'PCITY OF SPRINGFIELD\r\n'].join('\r\n'), { dateFormat: 'us' });
+
+    expect(data.type).toEqual('Bank');
+    expect(data.transactions[0].date).toEqual('1999-11-10T00:00:00');
+    expect(data.transactions[1].date).toEqual('2000-03-01T00:00:00');
+  });
+
   it('ignores repeated T column instead of crashing on U', () => {
     const data = qif2json.parse(['!Type:Bank',
       'D11/10/99',
