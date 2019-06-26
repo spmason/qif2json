@@ -21,15 +21,15 @@ describe('qif2json', () => {
     expect(data.type).toEqual('Bank');
     expect(data.transactions.length).toEqual(3);
 
-    expect(data.transactions[0].date).toEqual('2010-03-03');
+    expect(data.transactions[0].date).toEqual('2010-03-03T00:00:00');
     expect(data.transactions[0].amount).toEqual(-379);
     expect(data.transactions[0].payee).toEqual('CITY OF SPRINGFIELD');
 
-    expect(data.transactions[1].date).toEqual('2010-04-03');
+    expect(data.transactions[1].date).toEqual('2010-04-03T00:00:00');
     expect(data.transactions[1].amount).toEqual(-20.28);
     expect(data.transactions[1].payee).toEqual('YOUR LOCAL SUPERMARKET');
 
-    expect(data.transactions[2].date).toEqual('2010-03-03');
+    expect(data.transactions[2].date).toEqual('2010-03-03T00:00:00');
     expect(data.transactions[2].amount).toEqual(-421.35);
     expect(data.transactions[2].payee).toEqual('SPRINGFIELD WATER UTILITY');
   });
@@ -43,7 +43,7 @@ describe('qif2json', () => {
     expect(data.type).toEqual('Bank');
     expect(data.transactions.length).toEqual(1);
 
-    expect(data.transactions[0].date).toEqual('2010-03-03');
+    expect(data.transactions[0].date).toEqual('2010-03-03T00:00:00');
     expect(data.transactions[0].amount).toEqual(-379);
     expect(data.transactions[0].payee).toEqual('CITY OF SPRINGFIELD');
   });
@@ -57,7 +57,7 @@ describe('qif2json', () => {
     expect(data.type).toEqual('Bank');
     expect(data.transactions.length).toEqual(1);
 
-    expect(data.transactions[0].date).toEqual('2010-03-03');
+    expect(data.transactions[0].date).toEqual('2010-03-03T00:00:00');
     expect(data.transactions[0].amount).toEqual(-379);
     expect(data.transactions[0].payee).toEqual('CITY OF SPRINGFIELD');
   });
@@ -127,7 +127,7 @@ describe('qif2json', () => {
 
     expect(data.type).toEqual('AccounType');
     expect(data.transactions[0].category).toEqual('[AccountName]');
-    expect(data.transactions[0].date).toEqual('2014-10-26');
+    expect(data.transactions[0].date).toEqual('2014-10-26T00:00:00');
     expect(data.transactions[0].amount).toEqual(1337.00);
     expect(data.transactions[0].clearedStatus).toEqual('X');
   });
@@ -148,7 +148,7 @@ describe('qif2json', () => {
     expect(data.type).toEqual('Cardname');
     expect(data.transactions.length).toEqual(1);
 
-    expect(data.transactions[0].date).toEqual('2014-10-28');
+    expect(data.transactions[0].date).toEqual('2014-10-28T00:00:00');
     expect(data.transactions[0].amount).toEqual(-67);
     expect(data.transactions[0].payee).toEqual('Wallmart');
 
@@ -164,7 +164,7 @@ describe('qif2json', () => {
       'POpening Balance'].join('\r\n'), { dateFormat: 'us' });
 
     expect(data.type).toEqual('Bank');
-    expect(data.transactions[0].date).toEqual('2016-10-09');
+    expect(data.transactions[0].date).toEqual('2016-10-09T00:00:00');
     expect(data.transactions[0].amount).toEqual(1);
     expect(data.transactions[0].payee).toEqual('Opening Balance');
   });
@@ -176,7 +176,7 @@ describe('qif2json', () => {
       'POpening Balance'].join('\r\n'), { dateFormat: 'us' });
 
     expect(data.type).toEqual('Bank');
-    expect(data.transactions[0].date).toEqual('2009-11-10');
+    expect(data.transactions[0].date).toEqual('2009-11-10T00:00:00');
     expect(data.transactions[0].amount).toEqual(1);
     expect(data.transactions[0].payee).toEqual('Opening Balance');
   });
@@ -188,7 +188,7 @@ describe('qif2json', () => {
       'POpening Balance'].join('\r\n'), { dateFormat: 'us' });
 
     expect(data.type).toEqual('Bank');
-    expect(data.transactions[0].date).toEqual('1999-11-10');
+    expect(data.transactions[0].date).toEqual('1999-11-10T00:00:00');
     expect(data.transactions[0].amount).toEqual(1);
     expect(data.transactions[0].payee).toEqual('Opening Balance');
   });
@@ -210,7 +210,7 @@ describe('qif2json', () => {
     expect(data.type).toEqual('Cardname');
     expect(data.transactions.length).toEqual(1);
 
-    expect(data.transactions[0].date).toEqual('2014-10-28');
+    expect(data.transactions[0].date).toEqual('2014-10-28T00:00:00');
     expect(data.transactions[0].amount).toEqual(-67);
     expect(data.transactions[0].payee).toEqual('Wallmart');
 
@@ -239,7 +239,7 @@ describe('qif2json', () => {
     expect(data.type).toEqual('Bank');
     expect(data.transactions.length).toEqual(3);
 
-    expect(data.transactions[0].date).toEqual('2019-06-26');
+    expect(data.transactions[0].date).toEqual('2019-06-26T00:00:00');
     expect(data.transactions[0].amount).toEqual(-379);
     expect(data.transactions[0].payee).toEqual('CITY OF SPRINGFIELD');
   });
