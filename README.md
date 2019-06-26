@@ -9,15 +9,19 @@ Install the module with: `npm install qif2json`
 
 ```javascript
 var qif2json = require('qif2json');
-qif2json.parse(qifData);
+qif2json.parse(qifData, options);
 
 // Or to read in a file directly
-qif2json.parseFile(filePath, function(err, qifData){
+qif2json.parseFile(filePath, options, function(err, qifData){
     // done!
 });
 ```
 
 If installed globally, the `qif2json` command can also be used with an input file and the output JSON will be pretty-printed to the console
+
+## Options
+
+* `dateFormat` - The format of dates within the file.  The `fetcha` module is used for parsing them into Date objects.  See https://www.npmjs.com/package/fecha#formatting-tokens for available formatting tokens. The special format `"us"` will use us-format MM/DD/YYYY dates. Dates are normalised before parsing so `/`, `'` become `-` and spaces are removed.  On the commandline you can specify multiple date formats comma-delimited.
 
 ## Contributing
 Take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using `npm test`.

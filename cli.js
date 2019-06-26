@@ -5,21 +5,27 @@ const qif2json = require('./lib/qif2json.js');
 const args = process.argv.slice(2);
 let transactionsOnly;
 let file;
+let dateFormat;
 
-args.forEach((arg) => {
+while (args.length > 0) {
+  const arg = args.shift();
   if (arg.indexOf('-') !== 0) {
     file = arg;
-    return;
+    continue;
   }
   switch (arg) {
     case '--transactions':
     case '-t':
       transactionsOnly = true;
       break;
+    case '--date-format':
+    case '-d':
+      dateFormat = args.shift().split(',');
+      break;
     default:
       break;
   }
-});
+}
 
 function output(err, data) {
   let finalData = data;
@@ -36,8 +42,8 @@ function output(err, data) {
 }
 
 if (!file) {
-  qif2json.parseStream(process.stdin, output);
+  qif2json.parseStream(process.stdin, { dateFormat }, output);
   process.stdin.resume();
 } else {
-  qif2json.parseFile(file, output);
+  qif2json.parseFile(file, { dateFormat }, output);
 }
