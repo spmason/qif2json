@@ -20,7 +20,7 @@ while (args.length > 0) {
       break;
     case '--date-format':
     case '-d':
-      dateFormat = args.shift();
+      dateFormat = args.shift().split(',');
       break;
     default:
       break;
