@@ -26,17 +26,17 @@
     "test": "eslint . && mocha"
   },
   "devDependencies": {
-    "eslint": "^6.0.1",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.16.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
     "expectations": "^1.0.0",
-    "mocha": "^6.0.1"
+    "mocha": "^7.1.2"
   },
   "keywords": [],
   "dependencies": {
     "debug": "^4.1.1",
-    "fecha": "^3.0.3",
-    "iconv-lite": "^0.5.0",
-    "jschardet": "^2.1.0"
+    "fecha": "^4.2.0",
+    "iconv-lite": "^0.5.1",
+    "jschardet": "^2.1.1"
   }
 }
