@@ -9,7 +9,8 @@ describe('accounts', () => {
       expect(err).toBeUndefined();
 
       expect(qifData.accounts.length).toEqual(1);
-      expect(qifData.transactions.length).toEqual(3);
+      expect(qifData.transactions.length).toEqual(4);
+      expect(qifData.transactions[3].date.startsWith('2016'));
       expect(qifData.transactions[0].account).toEqual('Alior GBP');
       expect(qifData.accounts[0].name).toEqual('Alior GBP');
       expect(qifData.accounts[0].type).toEqual('Bank');
