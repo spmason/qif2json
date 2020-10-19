@@ -7,6 +7,8 @@ Parse .qif files into a sensible JSON format
 ## Getting Started
 Install the module with: `npm install qif2json`
 
+### Use in Node Js:
+
 ```javascript
 var qif2json = require('qif2json');
 qif2json.parse(qifData, options);
@@ -17,7 +19,31 @@ qif2json.parseFile(filePath, options, function(err, qifData){
 });
 ```
 
+### Use in CLI:
+
 If installed globally, the `qif2json` command can also be used with an input file, and the output JSON will be pretty-printed to the console
+
+### Use in browser:
+
+Example of implementation in Vue
+
+```
+import {parse} from 'qif2json/lib/parse';
+
+export default {
+  name: "UploadFile",
+  methods: {
+    async upload(e) { // method listening on @change event of input element with type "file"
+      const text = await e.target.files[0].text();
+      console.log(text.length);
+      console.log(text);
+
+      const json = parse(text)
+      console.log(json);
+    }
+  }
+}
+```
 
 ## Options
 
