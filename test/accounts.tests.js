@@ -61,9 +61,6 @@ U-855.28
 T-855.28
 LFood:Drink
 ^`);
-
-    console.log(data);
-
     expect(data.transactions.filter((t) => t.account === 'Alior GBP').length).toEqual(2);
     expect(data.accounts.filter((t) => t.name === 'Alior GBP').length).toEqual(1);
   });
