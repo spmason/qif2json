@@ -6,19 +6,13 @@ updates:
     interval: weekly
     time: "19:00"
   open-pull-requests-limit: 10
-  ignore:
-  - dependency-name: mocha
-    versions:
-    - 8.2.1
-    - 8.3.0
-    - 8.3.1
-  - dependency-name: jschardet
-    versions:
-    - 2.2.1
-    - 2.3.0
-  - dependency-name: lodash
-    versions:
-    - 4.17.20
-  - dependency-name: fecha
-    versions:
-    - 4.2.0
+  commit-message:
+    prefix: fix
+    prefix-development: chore
+    include: scope
+
+- package-ecosystem: "github-actions"
+  directory: "/"
+  schedule:
+    # Check for updates to GitHub Actions every week
+    interval: "weekly"
