@@ -30,7 +30,7 @@
     "test": "eslint . && mocha"
   },
   "devDependencies": {
-    "eslint": "^6.0.1",
+    "eslint": "^9.3.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.16.0",
     "expectations": "^1.0.0",
