@@ -4,7 +4,8 @@ updates:
   directory: "/"
   schedule:
     interval: weekly
-    time: "19:00"
+    day: wednesday
+    time: "12:00"
   open-pull-requests-limit: 10
   groups:
     eslint:
@@ -19,4 +20,6 @@ updates:
   directory: "/"
   schedule:
     # Check for updates to GitHub Actions every week
-    interval: "weekly"
+    interval: weekly
+    day: wednesday
+    time: "12:00"
