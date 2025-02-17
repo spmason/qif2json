@@ -269,4 +269,21 @@ describe('qif2json', () => {
     expect(data.type).toEqual('Bank');
     expect(data.transactions[0].amount).toEqual(1);
   });
+
+  it('should can parse values more than 1 million', () => {
+    const data = qif2json.parse(['!Type:Bank',
+      "D01/19'25",
+      'T0',
+      'CX',
+      'POpening Balance',
+      '^',
+      "D2 / 14' 5",
+      'T2,064,284.13',
+      'N',
+      'MTRANSF INTERNACIONAL RECIBIDA',
+    ].join('\r\n'), { dateFormat: "MM/D'YY" });
+
+    expect(data.type).toEqual('Bank');
+    expect(data.transactions[1].amount).toEqual(2064284.13);
+  });
 });
