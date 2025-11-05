@@ -40,7 +40,7 @@
   "dependencies": {
     "debug": "^4.1.1",
     "fecha": "^4.2.3",
-    "iconv-lite": "^0.5.0",
+    "iconv-lite": "^0.7.0",
     "jschardet": "^3.1.2"
   }
 }
